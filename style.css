@@ -1,9 +1,39 @@
 
-textarea{
-    width: 100%;
+#password{
     height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+    padding-top: 20px;
+    padding-bottom: 2px;
+    resize: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+#passwordLengthTextArea{
     resize: none;
 }
+
+.copyright-text{
+    font-size: 10px;
+}
+
+footer{
+    border-top-color: rgb(0, 110, 255);
+    border-top-style: solid;
+    border-width: 5px;
+}
+
+/* HIDE SCROLLBAR FOR CHROME */
+textarea::-webkit-scrollbar { width: 0 !important } 
+
+/* HIDE SCROLLBAR FOR FIREFOX */
+textarea { overflow: -moz-scrollbars-none; }
+
+/* HIDE SCROLLBAR FOR IE10 */
+textarea { -ms-overflow-style: none; }
 
 .form-check-label{
     width: auto;
