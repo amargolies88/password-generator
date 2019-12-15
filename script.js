@@ -68,3 +68,9 @@ function generatePassword(){
         }
     passwordTextArea.textContent = newPassword;
 }
+
+function copyPassword(){
+    passwordTextArea.select();
+    passwordTextArea.setSelectionRange(0, 99999); // For mobile devices
+    document.execCommand("copy");
+}
