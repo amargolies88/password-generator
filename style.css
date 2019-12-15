@@ -1,0 +1,15 @@
+
+.row{
+    justify-content: space-around;
+}
+
+.col{align-items: space-around;}
+
+textarea{
+    width: 100%;
+    resize: none
+}
+
+button{
+
+}
