@@ -12,89 +12,94 @@
 </head>
 
 <body>
-    <header class="row sticky-top p-5">
-        <div class="col-auto text-primary text-center">
-            <h1>Password Generator</h1>
-        </div>
-    </header>
-
-    <main class="row">
-        <div class="col-auto px-5 main-content">
-
-            <div class="row my-3 align-content-between">
-                <div class="col col-sm-auto form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="includeLowercase" checked>
-                    <label class="form-check-label" for="includeLowercase">
-                        Lowercase
-                    </label>
-                </div>
-                <div class="col col-sm-auto form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="includeUppercase">
-                    <label class="form-check-label" for="includeUppercase">
-                        Uppercase
-                    </label>
-                </div>
-                <div class="col col-sm-auto form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="includeNumeric">
-                    <label class="form-check-label" for="includeNumeric">
-                        Numeric
-                    </label>
-                </div>
-                <div class="col col-sm-auto form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="includeSpecial">
-                    <label class="form-check-label" for="includeSpecial">
-                        Special
-                    </label>
-                </div>
-
-
-                <!-- <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">Regular</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">Special</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox3">Numeric</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox4">Lowercase</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox5">Uppercase</label>
-                    </div> -->
-
+    <!-- BODY CONTAINER -->
+    <div class="container-fluid">
+        <!-- HEADER -->
+        <header class="row justify-content-center sticky-top p-5">
+            <div class="col-auto text-primary text-center">
+                <h1>Password Generator</h1>
             </div>
-            <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-sm-6 textfield">
-                    <div class="row p-0">
-                        <div class="col-12 mb-3 mb-sm-0 p-0">
-                            <textarea readonly id="password" placeholder="Your Secure Password"
-                                aria-label="Generated Password"></textarea>
+        </header>
+
+        <!-- MAIN -->
+        <main class="row mx-5 justify-content-center">
+            <div class="col main-content">
+
+                <!-- PASSWORD LENGTH SLIDER AND INPUT -->
+                <div class="row justify-content-start align-items-center">
+                    <div class="col-5">
+                        <label for="passwordLengthSlider">Password Length</label>
+                    </div>
+                    <div class="col-auto">
+                        <textarea maxlength="3" class="text-center" cols="3" rows="1"
+                            id="passwordLengthTextArea">8</textarea>
+                    </div>
+                    <div class="col-12">
+                        <input type="range" class="custom-range" id="passwordLengthSlider" min="8" max="128" value="8" defaultValue="8">
+                    </div>
+                </div>
+
+                <!-- CUSTOMIZATION CHECKBOXES -->
+                <div class="row my-3 align-content-between">
+                    <div class="col form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="includeLowercase" checked>
+                        <label class="form-check-label" for="includeLowercase">
+                            Lowercase
+                        </label>
+                    </div>
+                    <div class="col form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="includeUppercase">
+                        <label class="form-check-label" for="includeUppercase">
+                            Uppercase
+                        </label>
+                    </div>
+                    <div class="col form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="includeNumeric">
+                        <label class="form-check-label" for="includeNumeric">
+                            Numeric
+                        </label>
+                    </div>
+                    <div class="col form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="includeSpecial">
+                        <label class="form-check-label" for="includeSpecial">
+                            Special
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PASSWORD TEXTAREA AND BUTTONS -->
+                <div class="row justify-content-end align-items-center">
+
+                    <!-- PASSWORD TEXTAREA -->
+                    <div class="col-12 col-lg textfield">
+                        <div class="row">
+                            <div class="col-12 border mb-2 mb-lg-0 p-0">
+                                <textarea class="pb-0 text-center line-height-0" rows="1" readonly id="password" placeholder="Your Secure Password"
+                                    aria-label="Generated Password"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-auto col-sm-3">
-                    <button class="btn" id="generatePassword">Generate Password</button>
+
+                    <!-- BUTTON : GENERATE PASSWORD -->
+                    <div class="col-auto col-lg-auto mb-2 mb-lg-0">
+                        <button class="btn text-nowrap btn-primary" id="generatePassword">Generate Password</button>
+                    </div>
+
+                    <!-- BUTTON : COPY TO CLIPBOARD -->
+                    <div class="col-auto col-lg-auto mb-2 mb-lg-0">
+                        <button class="btn text-nowrap btn-secondary" id="copyPassword">Copy To Clipboard</button>
+                    </div>
                 </div>
 
-                <div class="col-auto col-sm-3">
-                    <button class="btn" id="copyPassword">Copy To Clipboard</button class="btn">
-                </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="row justify-content-center fixed-bottom bg-secondary">
+            <div class="col-auto text-white">
+                ©
             </div>
-
-    </main>
-
-    <footer class="row fixed-bottom bg-secondary">
-        <div class="col-auto text-white">
-            ©
-        </div>
-    </footer>
+        </footer>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
