@@ -1,17 +1,19 @@
-var generatePasswordButton = document.querySelector("#generatePassword");
-var copyPasswordButton = document.querySelector("#copyPassword");
 
-var includeLowercase = document.querySelector("#includeLowercase");
-var includeUppercase = document.querySelector("#includeUppercase");
-var includeNumeric = document.querySelector("#includeNumeric");
-var includeSpecial = document.querySelector("#includeSpecial");
 
-var passwordLengthSlider = document.querySelector("#passwordLengthSlider");
-var passwordLength = passwordLengthSlider.value;
+var generatePasswordButton = document.getElementById("generatePassword");
+var copyPasswordButton = document.getElementById("copyPassword");
 
-var passwordLengthTextArea = document.querySelector("#passwordLengthTextArea");
+var includeLowercase = document.getElementById("includeLowercase");
+var includeUppercase = document.getElementById("includeUppercase");
+var includeNumeric = document.getElementById("includeNumeric");
+var includeSpecial = document.getElementById("includeSpecial");
 
-var passwordTextArea = document.querySelector("#password");
+var passwordLengthSlider = document.getElementById("passwordLengthSlider");
+var passwordLengthTextArea = document.getElementById("passwordLengthTextArea");
+
+var passwordLength = 8;
+
+var passwordTextArea = document.getElementById("password");
 
 var characterList = {
     lowerCase: Array.from("abcdefghijklmnopqrstuvwxyz"),
@@ -25,16 +27,11 @@ function genRandInt(min, max) {
 }
 
 var generatePassword = function () {
-    let charOptions = [];
-    let newPassword = "";
-    let newChar = "";
-
-    let containsLowercase = false;
-    let containsUppercase = false;
-    let containsNumeric = false;
-    let containsSpecial = false;
-
     function checkInclusions(stringToCheck) {
+        let containsLowercase = false;
+        let containsUppercase = false;
+        let containsNumeric = false;
+        let containsSpecial = false;
         let array = stringToCheck.split("");
         if (includeLowercase.checked) {
             for (let i = 0; i < array.length; i++) {
@@ -88,10 +85,13 @@ var generatePassword = function () {
         !includeNumeric.checked &&
         !includeSpecial.checked
     ) {
-        // $('#checkboxErrorModal').modal('toggle');
         copyPasswordButton.disabled = true;
         passwordTextArea.textContent = "Select at least 1 character type.";
     } else {
+        let charOptions = [];
+        let newPassword = "";
+        let newChar = "";
+        // Build character array from character lists specified by user
         if (includeLowercase.checked) {
             charOptions = charOptions.concat(characterList.lowerCase);
         }
@@ -105,46 +105,57 @@ var generatePassword = function () {
             charOptions = charOptions.concat(characterList.specialCase);
         }
 
-        for (let i = 0; i < passwordLengthSlider.value; i++) {
+        // Build password
+        for (let i = 0; i < passwordLength; i++) {
+            //Choose a random character using random index value
             newChar = charOptions[genRandInt(0, charOptions.length - 1)];
+            //Add character to password string
             newPassword = newPassword + newChar;
         }
-        if (checkInclusions(newPassword)){
-            console.log(`The new generated password ${newPassword} contains all required characters`)
-            
+        // If new password meets requirements set by user
+        if (checkInclusions(newPassword)) {
+            console.log(`The new generated password ${newPassword} contains all required characters.`)
+            // Display the password in TextArea
             passwordTextArea.textContent = newPassword;
+            // Enable the Copy Password button
             copyPasswordButton.disabled = false;
+            // If new password does not meet requirements set by user
         } else {
             console.log(`Password ${newPassword} is missing a required character, re-making...`);
+            // Generate a new password
             generatePassword();
         }
     }
 }
 
+// Copy password
 function copyPassword() {
+    // Select the text in TextArea
     passwordTextArea.select();
     passwordTextArea.setSelectionRange(0, 99999); // For mobile devices
+    // Copy whatever is selected
     document.execCommand("copy");
 }
 
-$(document).ready(function(){
-    $("#passwordLengthSlider").slider({
-        range: "min",
-        value: 1,
-        step: 1000,
-        min: 0,
-        max: 5000000,
-        slide: function( event, ui ) {
-            $( "#passwordLengthTextArea" ).val( "$" + ui.value );
-        }
-    });
-    
-    
-    $("#passwordLengthTextArea").change(function () {
-        var value = this.value.substring(1);
-        console.log(value);
-        $("#passwordLengthSlider").slider("value", parseInt(value));
-    });
-    
-    
-});
+function updateLengthSlider() {
+    passwordLength = passwordLengthSlider.value;
+    passwordLengthTextArea.value = passwordLength;
+
+}
+
+function updateLengthTextArea() {
+    passwordLength = passwordLengthTextArea.value;
+    passwordLengthSlider.value = passwordLength;
+}
+
+function verifyNumberInput() {
+    if (passwordLengthTextArea.value < 8){
+        passwordLengthTextArea.value = 8;
+        updateLengthTextArea();
+    }
+    if (passwordLengthTextArea.value > 128){
+        passwordLengthTextArea.value = 128;
+        updateLengthTextArea();
+    }
+}
+// passwordLengthSlider.addEventListener(event, function, useCapture);

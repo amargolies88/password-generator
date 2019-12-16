@@ -13,7 +13,7 @@
 
 <body>
     <!-- BODY CONTAINER -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="test-test">
         <!-- HEADER -->
         <header class="row mb-4 justify-content-center bg-primary sticky-top p-1 p-sm-3 p-md-4 p-lg-5">
             <div class="col-auto text-white text-center">
@@ -31,10 +31,10 @@
                         <label for="passwordLengthSlider">Password Length</label>
                     </div>
                     <div class="col-auto">
-                        <input type="number" min="8" max="128" class="text-center" id="passwordLengthTextArea"></input>
+                        <input oninput="updateLengthTextArea()" onchange="verifyNumberInput()" type="number" min="8" max="128" value="8" class="text-center" id="passwordLengthTextArea"></input>
                     </div>
                     <div class="col-12">
-                        <input type="range" class="custom-range" id="passwordLengthSlider" min="8" max="128" value="8">
+                        <input oninput="updateLengthSlider()" type="range" class="custom-range" id="passwordLengthSlider" min="8" max="128" value="8">
                     </div>
                 </div>
 
