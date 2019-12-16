@@ -20,12 +20,6 @@ var characterList = {
     specialCase: Array.from(` !"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`)
 };
 
-passwordLengthSlider.oninput = function () {
-    passwordLengthTextArea.textContent = this.value;
-};
-
-
-
 function genRandInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -133,13 +127,24 @@ function copyPassword() {
     document.execCommand("copy");
 }
 
-
-//ENABLES POPPER TOOLTIPS
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip();
+$(document).ready(function(){
+    $("#passwordLengthSlider").slider({
+        range: "min",
+        value: 1,
+        step: 1000,
+        min: 0,
+        max: 5000000,
+        slide: function( event, ui ) {
+            $( "#passwordLengthTextArea" ).val( "$" + ui.value );
+        }
+    });
+    
+    
+    $("#passwordLengthTextArea").change(function () {
+        var value = this.value.substring(1);
+        console.log(value);
+        $("#passwordLengthSlider").slider("value", parseInt(value));
+    });
+    
+    
 });
-
-
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })

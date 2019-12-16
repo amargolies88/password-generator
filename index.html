@@ -31,12 +31,10 @@
                         <label for="passwordLengthSlider">Password Length</label>
                     </div>
                     <div class="col-auto">
-                        <textarea maxlength="3" class="text-center" cols="3" rows="1"
-                            id="passwordLengthTextArea">8</textarea>
+                        <input type="number" min="8" max="128" class="text-center" id="passwordLengthTextArea"></input>
                     </div>
                     <div class="col-12">
-                        <input type="range" class="custom-range" id="passwordLengthSlider" min="8" max="128" value="8"
-                            defaultValue="8">
+                        <input type="range" class="custom-range" id="passwordLengthSlider" min="8" max="128" value="8">
                     </div>
                 </div>
 
@@ -99,11 +97,10 @@
         <!-- FOOTER -->
         <footer class="row justify-content-center fixed-bottom bg-dark">
             <div class="col-auto p-3 copyright-text text-white">
-               Copyright ©
+                Copyright ©
             </div>
         </footer>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
