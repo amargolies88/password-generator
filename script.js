@@ -94,7 +94,9 @@ var generatePassword = function () {
         !includeNumeric.checked &&
         !includeSpecial.checked
     ) {
-        alert("At least 1 checkbox must be selected");
+        // $('#checkboxErrorModal').modal('toggle');
+        copyPasswordButton.disabled = true;
+        passwordTextArea.textContent = "Select at least 1 character type.";
     } else {
         if (includeLowercase.checked) {
             charOptions = charOptions.concat(characterList.lowerCase);
@@ -115,7 +117,9 @@ var generatePassword = function () {
         }
         if (checkInclusions(newPassword)){
             console.log(`The new generated password ${newPassword} contains all required characters`)
+            
             passwordTextArea.textContent = newPassword;
+            copyPasswordButton.disabled = false;
         } else {
             console.log(`Password ${newPassword} is missing a required character, re-making...`);
             generatePassword();
@@ -134,3 +138,8 @@ function copyPassword() {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
