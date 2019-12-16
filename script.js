@@ -158,4 +158,12 @@ function verifyNumberInput() {
         updateLengthTextArea();
     }
 }
+
+function censorText(visableText){
+    let hiddenText = "";
+    for (let i = 0; i < visableText.length; i++){
+        hiddenText = hiddenText + "*";
+    }
+    return hiddenText;
+}
 // passwordLengthSlider.addEventListener(event, function, useCapture);
