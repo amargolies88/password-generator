@@ -1,4 +1,7 @@
+var password = "";
+var showPassword = true;
 
+var hideButton = document.getElementById("hide-button");
 
 var generatePasswordButton = document.getElementById("generatePassword");
 var copyPasswordButton = document.getElementById("copyPassword");
@@ -14,6 +17,8 @@ var passwordLengthTextArea = document.getElementById("passwordLengthTextArea");
 var passwordLength = 8;
 
 var passwordTextArea = document.getElementById("password");
+
+var secretPasswordTextArea = document.getElementById("secretTextArea")
 
 var characterList = {
     lowerCase: Array.from("abcdefghijklmnopqrstuvwxyz"),
@@ -115,8 +120,10 @@ var generatePassword = function () {
         // If new password meets requirements set by user
         if (checkInclusions(newPassword)) {
             console.log(`The new generated password ${newPassword} contains all required characters.`)
-            // Display the password in TextArea
-            passwordTextArea.textContent = newPassword;
+            // Update global password variable
+            password = newPassword;
+            // Displays password as censored or visable and adds password to #secretTextArea
+            displayPassword();
             // Enable the Copy Password button
             copyPasswordButton.disabled = false;
             // If new password does not meet requirements set by user
@@ -127,12 +134,11 @@ var generatePassword = function () {
         }
     }
 }
-
 // Copy password
 function copyPassword() {
     // Select the text in TextArea
-    passwordTextArea.select();
-    passwordTextArea.setSelectionRange(0, 99999); // For mobile devices
+    secretPasswordTextArea.select();
+    secretPasswordTextArea.setSelectionRange(0, 99999); // For mobile devices
     // Copy whatever is selected
     document.execCommand("copy");
 }
@@ -159,11 +165,37 @@ function verifyNumberInput() {
     }
 }
 
-function censorText(visableText){
+function censorText(visibleText){
     let hiddenText = "";
-    for (let i = 0; i < visableText.length; i++){
+    for (let i = 0; i < visibleText.length; i++){
         hiddenText = hiddenText + "*";
     }
     return hiddenText;
+}
+
+function displayPassword() {
+    secretPasswordTextArea.textContent = password;
+    if (showPassword) {
+        passwordTextArea.textContent = password;
+    } else {
+        passwordTextArea.textContent = censorText(password);
+    }
+}
+
+function hideSwitch() {
+    showPassword = !showPassword;
+    displayPassword();
+    decorateHideSwitch();
+}
+
+function decorateHideSwitch() {
+    if (showPassword){
+        hideButton.className = "btn btn-light";
+        hideButton.textContent = "Hide";
+    } else {
+        hideButton.className = "btn btn-dark";
+        hideButton.textContent = "Show";
+    }
+
 }
 // passwordLengthSlider.addEventListener(event, function, useCapture);

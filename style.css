@@ -26,23 +26,20 @@ footer{
     border-width: 5px;
 }
 
+#hide-button{
+    font-size: 14px;
+    width: 60px;
+}
+
 /* HIDE SCROLLBAR FOR CHROME */
-textarea::-webkit-scrollbar { width: 0 !important } 
+#password::-webkit-scrollbar { width: 0 !important } 
 
 /* HIDE SCROLLBAR FOR FIREFOX */
-textarea { overflow: -moz-scrollbars-none; }
+#password { overflow: -moz-scrollbars-none; }
 
 /* HIDE SCROLLBAR FOR IE10 */
-textarea { -ms-overflow-style: none; }
+#password { -ms-overflow-style: none; }
 
 .form-check-label{
     width: auto;
-}
-
-button{
-
-}
-
-#passwordLengthSlider{
-    
 }

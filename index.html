@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div class="secretArea">
+        <textarea id="secretTextArea" style="position: absolute; top: -50px;">wwwwwww</textarea>
+    </div>
+
     <!-- BODY CONTAINER -->
     <div class="container-fluid" id="test-test">
         <!-- HEADER -->
@@ -71,8 +75,13 @@
 
                     <!-- PASSWORD TEXTAREA -->
                     <div class="col-12 col-lg textfield">
-                        <div class="row px-3">
-                            <div class="col-12 border mb-4 mb-lg-0 p-0">
+                        <div class="row mb-4 mb-lg-0">
+                            <div class="col-auto">
+                                <button onclick="hideSwitch()" class="btn btn-light" id="hide-button">
+                                    Hide
+                                </button>
+                            </div>
+                            <div class="col">
                                 <textarea class="" rows="1" cols="128" readonly id="password"
                                     placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
                             </div>
