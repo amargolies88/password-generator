@@ -1,3 +1,6 @@
+.footer-margin{
+    margin-bottom: 60px;
+}
 
 #password{
     height: 100%;
@@ -5,11 +8,10 @@
     text-align: center;
     line-height: 1;
     white-space: nowrap;
-    padding-top: 20px;
-    padding-bottom: 2px;
     resize: none;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
 }
 
 #passwordLengthTextArea{
@@ -27,18 +29,21 @@ footer{
 }
 
 #hide-button{
+    display: flex;
     font-size: 14px;
     width: 60px;
+    height: 58px;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    border-color: rgb(169, 169, 169);
+    border-right: 0;
 }
 
-/* HIDE SCROLLBAR FOR CHROME */
-#password::-webkit-scrollbar { width: 0 !important } 
-
-/* HIDE SCROLLBAR FOR FIREFOX */
-#password { overflow: -moz-scrollbars-none; }
-
-/* HIDE SCROLLBAR FOR IE10 */
-#password { -ms-overflow-style: none; }
+/* .btn-light:focus, .btn-dark:focus{
+    border-style: none;
+    box-shadow: none;
+} */
 
 .form-check-label{
     width: auto;
