@@ -34,16 +34,20 @@ footer{
     width: 60px;
     height: 58px;
     margin: 0;
-    box-shadow: none;
     border-radius: 0;
     border-color: rgb(169, 169, 169);
     border-right: 0;
+    box-shadow: none;
 }
 
-/* .btn-light:focus, .btn-dark:focus{
-    border-style: none;
+#hide-button:focus{
+    border-radius: 0;
+    border-color: rgb(169, 169, 169);
+    border-right: 0;
+    border-width: 1px;
+    outline: none;
     box-shadow: none;
-} */
+}
 
 .form-check-label{
     width: auto;
