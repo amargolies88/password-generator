@@ -4,6 +4,7 @@
 
 This password generator uses html css and java to generate a password using a web browser. The user can select between 4 character types and a password length of 8 to 128 characters. The generator even ensures that each character type exists in the generated password. The password generator has the option to hide the password from view. It also features a Copy To Clipboard button which copies the password the the user's clipboard.
 
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -11,12 +12,16 @@ This password generator uses html css and java to generate a password using a we
 * [Credits](#credits)
 * [License](#license)
 
+
 ## Installation
 
-### Download
-Download this repository (password-generator). Locate this repository in your local directory. There is nothing else needed to install this project. A web browser program is needed to view the completed project (Google Chrome, Firefox, Edge...). An IDE (Integrated Development Environment) such as Visual Studio Code is also useful to view and edit the code. If you just want to use the program online, go to http://amargolies88.github.io/password-generator 
+### Visit The Deployed Website
+https://amargolies88.github.io/password-generator
 
-### Open
+### or Download
+Download this repository (password-generator). Locate this repository in your local directory. There is nothing else needed to install this project. A web browser program is needed to view the completed project (Google Chrome, Firefox, Edge...). An IDE (Integrated Development Environment) such as Visual Studio Code is also useful to view and edit the code.
+
+### and Open
 Navigate to this repository locally. The three pages of the project are inside the root directory. Right click on one of the html files and choose open with code, or select the "open with" menu and choose your preferred editor.
 
 The files can also be viewed in the web browser by choosing to open with your preferred web browser. The CSS files can be found in assets/css. The javascript file can be found in assets/js.
@@ -42,7 +47,7 @@ The program will also check the password to make sure there is at least one of e
 ### Hide Button
 There is a hide button to the left of the password textfield. When clicked, this button will hide the generated password and instead display astrisks for each character. The button then changes to a Show button, which when clicked, reveals the password and changes back to the hide button.
 
-![Hide Button](assets/imgs/documentation/hide-button.png)
+![Hide Button](assets/imgs/documentation/show-button.png)
 
 ### Copy To Clipboard Button
 The Copy To Clipboard button, displayed to the right of the Generate Password button, will copy the generated password to the user's clipboard. Even when the textfield displays astrisks via the hide button, the Copy To Clipboard button will still copy the hidden password.
@@ -66,11 +71,11 @@ This password generator uses bootstrap to make the application easy to use with 
 
 ## Credits
 
-Visual Studio Code https://code.visualstudio.com/
+Visual Studio Code https://code.visualstudio.com
 
-Bootstrap https://getbootstrap.com/
+Bootstrap https://getbootstrap.com
 
-jQuery https://jquery.com/
+jQuery https://jquery.com
 
 ## License
 
