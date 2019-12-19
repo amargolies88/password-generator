@@ -31,24 +31,33 @@ function genRandInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Generate Password
 var generatePassword = function () {
+    // Function to make sure generated password has each user-specified character type
     function checkInclusions(stringToCheck) {
         let containsLowercase = false;
         let containsUppercase = false;
         let containsNumeric = false;
         let containsSpecial = false;
+
+        //Make character array from password
         let array = stringToCheck.split("");
+
+        //Check for lowercase character if user checked the checkbox for it
         if (includeLowercase.checked) {
             for (let i = 0; i < array.length; i++) {
                 if (characterList.lowerCase.includes(array[i])) {
                     containsLowercase = true;
                 }
             }
+            //If no character in the password matches any character in the character list
             if (!containsLowercase) {
+                //Return false which should trigger the password to be re-generated
                 return false;
             }
         }
-
+        
+        //Same check for uppercase
         if (includeUppercase.checked) {
             for (let i = 0; i < array.length; i++) {
                 if (characterList.upperCase.includes(array[i])) {
@@ -60,6 +69,7 @@ var generatePassword = function () {
             }
         }
 
+        //Same check for numbers
         if (includeNumeric.checked) {
             for (let i = 0; i < array.length; i++) {
                 if (characterList.numeric.includes(array[i])) {
@@ -71,6 +81,7 @@ var generatePassword = function () {
             }
         }
 
+        //Same check for special characters
         if (includeSpecial.checked) {
             for (let i = 0; i < array.length; i++) {
                 if (characterList.specialCase.includes(array[i])) {
@@ -84,15 +95,19 @@ var generatePassword = function () {
         return true;
     }
 
+    //Check to ensure user has selected at least 1 checkbox.
     if (
         !includeLowercase.checked &&
         !includeUppercase.checked &&
         !includeNumeric.checked &&
         !includeSpecial.checked
     ) {
+        //If user doesn't have at least 1 checkbox checked
+        //disable the copy button and notify user via main TextArea
         copyPasswordButton.disabled = true;
         passwordTextArea.textContent = "Select at least 1 character type.";
     } else {
+        //Begin generating...
         let charOptions = [];
         let newPassword = "";
         let newChar = "";
@@ -110,7 +125,7 @@ var generatePassword = function () {
             charOptions = charOptions.concat(characterList.specialCase);
         }
 
-        // Build password
+        // Build password from new char array charOptions
         for (let i = 0; i < passwordLength; i++) {
             //Choose a random character using random index value
             newChar = charOptions[genRandInt(0, charOptions.length - 1)];
@@ -126,14 +141,15 @@ var generatePassword = function () {
             displayPassword();
             // Enable the Copy Password button
             copyPasswordButton.disabled = false;
-            // If new password does not meet requirements set by user
         } else {
+            // If new password does not meet requirements set by user
             console.log(`Password ${newPassword} is missing a required character, re-making...`);
             // Generate a new password
             generatePassword();
         }
     }
 }
+
 // Copy password
 function copyPassword() {
     // Select the text in TextArea
@@ -143,17 +159,20 @@ function copyPassword() {
     document.execCommand("copy");
 }
 
+//When slider is clicked, update global length value and TextArea value
 function updateLengthSlider() {
     passwordLength = passwordLengthSlider.value;
     passwordLengthTextArea.value = passwordLength;
 
 }
 
+//When user updates password lenght TextArea input, update global length value and Slider value
 function updateLengthTextArea() {
     passwordLength = passwordLengthTextArea.value;
     passwordLengthSlider.value = passwordLength;
 }
 
+//Sets length TextArea input to min or max if user inputs a number outside of that range
 function verifyNumberInput() {
     if (passwordLengthTextArea.value < 8){
         passwordLengthTextArea.value = 8;
@@ -165,6 +184,7 @@ function verifyNumberInput() {
     }
 }
 
+//Converts string to string of astrisks with same string length and returns that
 function censorText(visibleText){
     let hiddenText = "";
     for (let i = 0; i < visibleText.length; i++){
