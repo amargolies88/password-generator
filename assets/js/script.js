@@ -193,8 +193,11 @@ function censorText(visibleText){
     return hiddenText;
 }
 
+//Display the password
 function displayPassword() {
+    //Puts password in secret text area
     secretPasswordTextArea.textContent = password;
+    //Displays password visible or censored in main password display area
     if (showPassword) {
         passwordTextArea.textContent = password;
     } else {
@@ -202,12 +205,17 @@ function displayPassword() {
     }
 }
 
+//Function for Hide/Show switch
 function hideSwitch() {
+    //Switch showPassword global
     showPassword = !showPassword;
+    //Update main password area
     displayPassword();
+    //Switch hide button to show button
     decorateHideSwitch();
 }
 
+//Function to switch hide/show button back and forth
 function decorateHideSwitch() {
     if (showPassword){
         hideButton.className = "btn btn-light";
@@ -218,4 +226,3 @@ function decorateHideSwitch() {
     }
 
 }
-// passwordLengthSlider.addEventListener(event, function, useCapture);
