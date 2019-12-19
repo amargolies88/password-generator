@@ -2,7 +2,7 @@
 
 ## Description
 
-This password generator uses html css and java to generate a password using a web browser. The user can select between 4 character types and a password length of 8 to 128 characters. The generator even ensures that each character type exists in the generated password. The password generator has the option to hide the password from view. It also features a Copy To Clipboard button which copies the password the the user's clipboard.
+This password generator uses HTML CSS and JavaScript to generate a password using a web browser. The user can select between 4 character types and a password length of 8 to 128 characters. The generator even ensures that each character type exists in the generated password. The password generator has the option to hide the password from view. It also features a Copy To Clipboard button which copies the password the the user's clipboard.
 
 
 ## Table of Contents
