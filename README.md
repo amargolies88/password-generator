@@ -22,9 +22,9 @@ https://amargolies88.github.io/password-generator
 Download this repository (password-generator). Locate this repository in your local directory. There is nothing else needed to install this project. A web browser program is needed to view the completed project (Google Chrome, Firefox, Edge...). An IDE (Integrated Development Environment) such as Visual Studio Code is also useful to view and edit the code.
 
 ### and Open
-Navigate to this repository locally. The three pages of the project are inside the root directory. Right click on one of the html files and choose open with code, or select the "open with" menu and choose your preferred editor.
+Navigate to this repository locally. The main page, index.html, is located inside the root directory. Right click on one of the html files and choose open with code, or select the "open with" menu and choose your preferred editor.
 
-The files can also be viewed in the web browser by choosing to open with your preferred web browser. The CSS files can be found in assets/css. The javascript file can be found in assets/js.
+The files can also be viewed in the web browser by choosing to open with your preferred web browser. The CSS files can be found in assets/css/. The javascript file can be found in assets/js/.
 
 
 ## Usage

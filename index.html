@@ -14,7 +14,7 @@
 <body>
     <!-- HIDDEN TEXTFIELD -->
     <div class="secretArea">
-        <textarea id="secretTextArea" style="position: absolute; top: -50px;">wwwwwww</textarea>
+        <textarea rows="0" cols="128" readonly id="secretTextArea" style="position: absolute; top: -100px;"></textarea>
     </div>
 
     <!-- BODY CONTAINER -->
@@ -33,14 +33,16 @@
 
                 <!-- PASSWORD LENGTH SLIDER AND INPUT -->
                 <div class="row justify-content-start align-items-center">
-                    <div class="col-5">
-                        <label for="passwordLengthSlider">Password Length</label>
+                    <div class="col-auto">
+                        <label class="m-0" for="passwordLengthSlider">Password Length</label>
                     </div>
                     <div class="col-auto">
-                        <input oninput="updateLengthTextArea()" onchange="verifyNumberInput()" type="number" min="8" max="128" value="8" class="text-center" id="passwordLengthTextArea"></input>
+                        <input oninput="updateLengthTextArea()" onchange="verifyNumberInput()" type="number" min="8"
+                            max="128" value="8" class="text-center" id="passwordLengthTextArea"></input>
                     </div>
-                    <div class="col-12">
-                        <input oninput="updateLengthSlider()" type="range" class="custom-range" id="passwordLengthSlider" min="8" max="128" value="8">
+                    <div class="col-12 mt-3">
+                        <input oninput="updateLengthSlider()" type="range" class="custom-range"
+                            id="passwordLengthSlider" min="8" max="128" value="8">
                     </div>
                 </div>
 
